@@ -732,13 +732,13 @@ A single User object with all its details
                 }
             }
        
-## Users Settings [/users/:id/Settings?page=1&per_page=10]
+## User Settings [/users/{user_id}/Settings/{id}]
 ### Retrieve User Settings [GET]
 
 + Parameters
-    + page (optional, number, `1`) ... A number to indicate which page to retrieve
-    + per_page (optional, number, `25`) ... A number to indicate how many Users to retrieve per request or page. 
-
+    + user_id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+    + id (required, number, `1`) ... Numeric `id` of the settings to perform action with. Has example value.
+    
 + Request
 
     + Header
