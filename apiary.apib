@@ -87,6 +87,26 @@ Drops related resources of the **Drop API**. This is the service that is used re
             ]
         }
 
+## Retrieve a Drop  [/drops/{id}]
+
+### Retrieve a Drop [GET]
+
++ Parameters
+    + id (required, number, `1`) ... A number to indicate which drop to retrieve.
+
++ Response 200 (application/json)
+
+        {   
+            "drops":
+                {
+                    "id": 10,
+                    "name": "Highbury & Islington",
+                    "properties": null,
+                    "coordinates": null
+                }
+            }
+
+
 # Group Drop Events
 Drop Event related resources of the **Drop Event API**. This is the service that is used retrieve, create and update Drop Events. Some of these actions are ADMIN ONLY.
 
@@ -737,7 +757,7 @@ A single User object with all its details
 
 + Parameters
     + user_id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
-    + id (required, number, `1`) ... Numeric `id` of the settings to perform action with. Has example value.
+    + id (required, number, `1`) ... Numeric `id` of the Settings to perform action with. Has example value.
     
 + Request
 
