@@ -1,0 +1,760 @@
+FORMAT: 1A
+HOST: http://api-staging.farmdrop.co.uk/api
+
+# FarmDrop API v1
+FarmDrop API is an *interface* into the FarmDrop service. More blur about this to follow. 
+
+# Group Drops
+Drops related resources of the **Drop API**. This is the service that is used retrieve, create and update Drops. Some of these actions are ADMIN ONLY.
+
+## Drop  Collection [/drops/?page=1&per_page=10]
+
+### List all Drops [GET]
+
++ Parameters
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `25`) ... A number to indicate how many items to retrieve per request or page. 
+
++ Response 200 (application/json)
+
+        {
+            "count": 10,
+            "current_page": 1,
+            "pages": 1,
+            "drops": [
+                {
+                    "id": 10,
+                    "name": "Highbury & Islington",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 7,
+                    "name": "Balham",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 6,
+                    "name": "Ealing",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 3,
+                    "name": "Notting Hill",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 9,
+                    "name": "Peckham Rye",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 4,
+                    "name": "Shoreditch & Old Street Drop",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 5,
+                    "name": "Wandsworth",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 1,
+                    "name": "Kilburn & Queen's Park",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 2,
+                    "name": "Tufnell Park & Kentish Town",
+                    "properties": null,
+                    "coordinates": null
+                },
+                {
+                    "id": 8,
+                    "name": "Shepherd's Bush",
+                    "properties": {
+                        "test2": "test"
+                    },
+                    "coordinates": "POINT (-122.193963 47.675088)"
+                }
+            ]
+        }
+
+# Group Drop Events
+Drop Event related resources of the **Drop Event API**. This is the service that is used retrieve, create and update Drop Events. Some of these actions are ADMIN ONLY.
+
+## Drop Events Collection [/drops/:id/drop_events?page=1&per_page=10]
+### List all drop events [GET]
+
++ Parameters
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `25`) ... A number to indicate how many items to retrieve per request or page. 
+
++ Response 200 (application/json)
+
+        {
+            "count": 10,
+            "current_page": 1,
+            "pages": 1,
+            "drop_events": [
+                {
+                    "id": 3,
+                    "name": "Tufnell 23 May 2013",
+                    "cutoff_date": "2013-05-20T23:59:59.000Z",
+                    "drop_date": "2013-05-23T18:00:00.000Z",
+                    "drop_id": 2,
+                    "status": "active"
+                },
+                {
+                    "id": 2,
+                    "name": "Tufnell 30 May 2013",
+                    "cutoff_date": "2013-05-28T14:00:00.000Z",
+                    "drop_date": "2013-05-30T18:00:00.000Z",
+                    "drop_id": 2,
+                    "status": "active"
+                },
+                {
+                    "id": 5,
+                    "name": "Tufnell 06 June 2013",
+                    "cutoff_date": "2013-06-03T23:59:59.000Z",
+                    "drop_date": "2013-06-06T18:00:00.000Z",
+                    "drop_id": 2,
+                    "status": "active"
+                },
+                {
+                    "id": 7,
+                    "name": "Kilburn 13 June 2013",
+                    "cutoff_date": "2013-06-10T23:59:59.000Z",
+                    "drop_date": "2013-06-13T17:30:00.000Z",
+                    "drop_id": 1,
+                    "status": "active"
+                },
+                {
+                    "id": 8,
+                    "name": "Tufnell 13 June 2013",
+                    "cutoff_date": "2013-06-10T23:59:59.000Z",
+                    "drop_date": "2013-06-13T18:00:00.000Z",
+                    "drop_id": 2,
+                    "status": "active"
+                },
+                {
+                    "id": 1,
+                    "name": "Kilburn 23 May 2013",
+                    "cutoff_date": "2013-05-20T23:59:59.000Z",
+                    "drop_date": "2013-05-23T17:30:00.000Z",
+                    "drop_id": 1,
+                    "status": "active"
+                },
+                {
+                    "id": 4,
+                    "name": "Kilburn 30 May 2013",
+                    "cutoff_date": "2013-05-28T14:00:00.000Z",
+                    "drop_date": "2013-05-30T17:30:00.000Z",
+                    "drop_id": 1,
+                    "status": "active"
+                },
+                {
+                    "id": 6,
+                    "name": "Kilburn 6 June 2013",
+                    "cutoff_date": "2013-06-03T23:59:59.000Z",
+                    "drop_date": "2013-06-06T17:30:00.000Z",
+                    "drop_id": 1,
+                    "status": "active"
+                },
+                {
+                    "id": 10,
+                    "name": "Tufnell 20 June 2013",
+                    "cutoff_date": "2013-06-17T23:59:59.000Z",
+                    "drop_date": "2013-06-20T18:00:00.000Z",
+                    "drop_id": 2,
+                    "status": "active"
+                },
+                {
+                    "id": 9,
+                    "name": "Kilburn 20 June 2013",
+                    "cutoff_date": "2013-06-17T23:59:59.000Z",
+                    "drop_date": "2013-06-20T17:30:00.000Z",
+                    "drop_id": 1,
+                    "status": "active"
+                }
+            ]
+        }
+
+
+
+# Group Producers
+Producers related resources of the **Producer API**. This is the service that is used to retrieve, create and update Producers. Some of these actions are **ADMIN or PRODUCER ONLY**.
+
+## Producers Collection [/producers/?page=1&per_page=10]
+### List all Producers [GET]
+
++ Parameters
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `15`) ... A number to indicate how many items to retrieve per request or page. 
+
++ Response 200 (application/json)
+
+        {
+            "count": 15,
+            "current_page": 1,
+            "pages": 1,
+            "producers": [
+                {
+                    "id": 3,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 3,
+                            "taxon_id": 9,
+                            "producer_id": 3,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.315Z",
+                            "updated_at": "2013-06-08T11:54:12.315Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 4,
+                            "taxon_id": 4,
+                            "producer_id": 4,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.338Z",
+                            "updated_at": "2013-06-08T11:54:12.338Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 5,
+                            "taxon_id": 16,
+                            "producer_id": 5,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.361Z",
+                            "updated_at": "2013-06-08T11:54:12.361Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 6,
+                            "taxon_id": 20,
+                            "producer_id": 6,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.386Z",
+                            "updated_at": "2013-06-08T11:54:12.386Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 7,
+                            "taxon_id": 25,
+                            "producer_id": 7,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.412Z",
+                            "updated_at": "2013-06-08T11:54:12.412Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 8,
+                            "taxon_id": 32,
+                            "producer_id": 8,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.437Z",
+                            "updated_at": "2013-06-08T11:54:12.437Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 9,
+                            "taxon_id": 14,
+                            "producer_id": 9,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.462Z",
+                            "updated_at": "2013-06-08T11:54:12.462Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 11,
+                            "taxon_id": 7,
+                            "producer_id": 11,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.512Z",
+                            "updated_at": "2013-06-08T11:54:12.512Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 12,
+                            "taxon_id": 36,
+                            "producer_id": 12,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.535Z",
+                            "updated_at": "2013-06-08T11:54:12.535Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 13,
+                            "taxon_id": 23,
+                            "producer_id": 13,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.559Z",
+                            "updated_at": "2013-06-08T11:54:12.559Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 14,
+                            "taxon_id": 38,
+                            "producer_id": 14,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.583Z",
+                            "updated_at": "2013-06-08T11:54:12.583Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "user_id": 97,
+                    "properties": null,
+                    "coordinates": null,
+                    "producer_taxons": []
+                },
+                {
+                    "id": 1,
+                    "user_id": 8,
+                    "properties": null,
+                    "coordinates": "POINT (-122.193963 47.675086)",
+                    "producer_taxons": [
+                        {
+                            "id": 27,
+                            "taxon_id": 1,
+                            "producer_id": 1,
+                            "is_master_taxon": null,
+                            "created_at": "2013-10-31T15:37:14.567Z",
+                            "updated_at": "2013-10-31T15:37:14.567Z"
+                        },
+                        {
+                            "id": 28,
+                            "taxon_id": 2,
+                            "producer_id": 1,
+                            "is_master_taxon": null,
+                            "created_at": "2013-10-31T15:37:14.574Z",
+                            "updated_at": "2013-10-31T15:37:14.574Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "user_id": 8,
+                    "properties": {
+                        "test": "test"
+                    },
+                    "coordinates": null,
+                    "producer_taxons": [
+                        {
+                            "id": 2,
+                            "taxon_id": 34,
+                            "producer_id": 2,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.292Z",
+                            "updated_at": "2013-06-08T11:54:12.292Z"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "user_id": 8,
+                    "properties": {
+                        "test2": "test"
+                    },
+                    "coordinates": "POINT (-122.193963 47.675088)",
+                    "producer_taxons": [
+                        {
+                            "id": 10,
+                            "taxon_id": 22,
+                            "producer_id": 10,
+                            "is_master_taxon": true,
+                            "created_at": "2013-06-08T11:54:12.486Z",
+                            "updated_at": "2013-06-08T11:54:12.486Z"
+                        }
+                    ]
+                }
+            ]
+        }
+
+
+# Group Keepers
+Keepers related resources of the **Keeper API**. This is the service that is used to retrieve, create and update Keepers. Some of these actions are **ADMIN or KEEPER ROLES ONLY**.
+
+
+# Group Users
+Users related resources of the **User API**. This is the service that is used to signup, login, reset password, retrieve, create and update Users. Some of these actions are ADMIN ONLY.
+
+## Users Collection [/users?page=1&per_page=1]
+### List all Users [GET]
+
++ Parameters
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `25`) ... A number to indicate how many Users to retrieve per request or page. 
+
++ Response 200 (application/json)
+
+        {
+            "count": 25,
+            "current_page": 1,
+            "pages": 11,
+            "users": [
+                {
+                    "id": 98,
+                    "email": "ddd@wdsefgwadesf.fr",
+                    "firstname": null,
+                    "lastname": null,
+                    "role": "producer",
+                    "authentication_token": "0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA",
+                    "producer_id": null,
+                    "image_url": null,
+                    "google_id": null,
+                    "facebook_id": null,
+                    "properties": null,
+                    "memberships": [],
+                    "bill_address": {
+                        "id": 488,
+                        "firstname": "wadsefr",
+                        "lastname": "swadsef",
+                        "full_name": "wadsefr swadsef",
+                        "address1": "NA",
+                        "address2": null,
+                        "city": "NA",
+                        "zipcode": "s23ww",
+                        "phone": "0",
+                        "company": null,
+                        "alternative_phone": null,
+                        "country_id": 44,
+                        "state_id": null,
+                        "state_name": null,
+                        "country": {
+                            "id": 44,
+                            "iso_name": "UNITED KINGDOM",
+                            "iso": "GB",
+                            "iso3": "GBR",
+                            "name": "United Kingdom",
+                            "numcode": 826
+                        },
+                        "": null
+                    }
+                }
+            ]
+        }
+        
+        
+
+      
+
+### Create a User [POST]
+
+    + user (required, number, `1`) ... The main user object
+    + firstname (required, string, `Myles`) ... firstname of the user. This will also get saved onto the address.
+    + lastname (required, string, `Cowper-coles`) ... lastname of the user. This will also get saved onto the address
+    + login_method (required, string, `normal`) : "normal", "facebook", or "google"
+    + role (required, string, `member`) ... A number to indicate how many Users to retrieve per request or page.  
+    + bill_address (optional, number, `25`) ... A number to indicate how many Users to retrieve per request or page. 
+    + email (required, string, `myles@farmdrop.co.uk`)
+    + password (required, string, `password1`)
+
++ Request (application/json)
+
+        {
+            "user": {
+                "firstname": "Myles",
+                "lastname": "cowper-coles",
+                "role": "member",
+                "login_method": "normal",
+                "bill_address": {
+                    "address1": "NA",
+                    "city": "NA",
+                    "phone": "0",
+                    "zipcode": "SW12 8Ag",
+                    "firstname": "Myles",
+                    "lastname": "cowper-coles"
+                },
+                "email": "myles@farmdrop.co.uk",
+                "password": "password1"
+            }
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "user": 
+                {
+                    "id": 98,
+                    "email": "ddd@wdsefgwadesf.fr",
+                    "firstname": null,
+                    "lastname": null,
+                    "role": "producer",
+                    "authentication_token": "0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA",
+                    "producer_id": null,
+                    "image_url": null,
+                    "google_id": null,
+                    "facebook_id": null,
+                    "properties": null,
+                    "memberships": [],
+                    "bill_address": {
+                        "id": 488,
+                        "firstname": "wadsefr",
+                        "lastname": "swadsef",
+                        "full_name": "wadsefr swadsef",
+                        "address1": "NA",
+                        "address2": null,
+                        "city": "NA",
+                        "zipcode": "s23ww",
+                        "phone": "0",
+                        "company": null,
+                        "alternative_phone": null,
+                        "country_id": 44,
+                        "state_id": null,
+                        "state_name": null,
+                        "country": {
+                            "id": 44,
+                            "iso_name": "UNITED KINGDOM",
+                            "iso": "GB",
+                            "iso3": "GBR",
+                            "name": "United Kingdom",
+                            "numcode": 826
+                        },
+                        "": null
+                    }
+                }
+            }
+
+## User [/Users/{id}]
+A single User object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the User to perform action with. Has example value.
+
+### Retrieve a User [GET]
+
++ Request 
+
+    + Header
+
+            X-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
+
++ Response 200 (application/json)
+
+
+
+    + Body
+    
+            { 
+                "user": 
+                    {
+                        "id": 98,
+                        "email": "ddd@wdsefgwadesf.fr",
+                        "firstname": null,
+                        "lastname": null,
+                        "role": "producer",
+                        "authentication_token": "0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA",
+                        "producer_id": null,
+                        "image_url": null,
+                        "google_id": null,
+                        "facebook_id": null,
+                        "properties": null,
+                        "memberships": [],
+                        "bill_address": {
+                            "id": 488,
+                            "firstname": "wadsefr",
+                            "lastname": "swadsef",
+                            "full_name": "wadsefr swadsef",
+                            "address1": "NA",
+                            "address2": null,
+                            "city": "NA",
+                            "zipcode": "s23ww",
+                            "phone": "0",
+                            "company": null,
+                            "alternative_phone": null,
+                            "country_id": 44,
+                            "state_id": null,
+                            "state_name": null,
+                            "country": {
+                                "id": 44,
+                                "iso_name": "UNITED KINGDOM",
+                                "iso": "GB",
+                                "iso3": "GBR",
+                                "name": "United Kingdom",
+                                "numcode": 826
+                            },
+                            "": null
+                        }
+                    }
+                }
+
+### Remove a User [DELETE]
++ Response 204
+
+## User login [/users/login]
+### Login User [POST]
+
++ Parameters
+    + user (required, string, `user`) ... the user object to login with. Has example value.
+
+
++ Request (application/json)
+
+    + header
+    
+            X-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
+            FB-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
+            G-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
+
+    + Body
+    
+            {
+                "user": {
+                    "email": "myles@farmdrop.co.uk",
+                    "password": "KentIsAwesome"
+                }
+            }
+
++ Response 200 (application/json)
+
+        { 
+            "users": 
+                {
+                    "id": 98,
+                    "email": "ddd@wdsefgwadesf.fr",
+                    "firstname": null,
+                    "lastname": null,
+                    "role": "producer",
+                    "authentication_token": "0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA",
+                    "producer_id": null,
+                    "image_url": null,
+                    "google_id": null,
+                    "facebook_id": null,
+                    "properties": null,
+                    "memberships": [],
+                    "bill_address": {
+                        "id": 488,
+                        "firstname": "wadsefr",
+                        "lastname": "swadsef",
+                        "full_name": "wadsefr swadsef",
+                        "address1": "NA",
+                        "address2": null,
+                        "city": "NA",
+                        "zipcode": "s23ww",
+                        "phone": "0",
+                        "company": null,
+                        "alternative_phone": null,
+                        "country_id": 44,
+                        "state_id": null,
+                        "state_name": null,
+                        "country": {
+                            "id": 44,
+                            "iso_name": "UNITED KINGDOM",
+                            "iso": "GB",
+                            "iso3": "GBR",
+                            "name": "United Kingdom",
+                            "numcode": 826
+                        },
+                        "": null
+                    }
+                }
+            }
+       
+## Users Settings [/users/:id/Settings?page=1&per_page=10]
+### Retrieve User Settings [GET]
+
++ Parameters
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `25`) ... A number to indicate how many Users to retrieve per request or page. 
+
++ Request
+
+    + Header
+
+            X-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
+
+
++ Response 200 (application/json)
+
+        {
+            "id":1,
+            "user_id":3
+        }
+
+
+
+
+
+
