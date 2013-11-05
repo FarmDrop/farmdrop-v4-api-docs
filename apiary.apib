@@ -87,6 +87,102 @@ Drops related resources of the **Drop API**. This is the service that is used re
             ]
         }
 
+
+### Create a Drop [POST]
+
+    + drop (required, object, `drop`) ... The main drop object
+    + shortcode (required, string, `kilburn`) ... The shortcode of the drop try to keep this 5-10 alphanumbric with no spaces
+    + name (required, object, `drop`) ... The name of the drop   
+    + properties (optional, hashtable, `{"website":"www.communitycenter.com"}`) ... Any properties you want on the drop 
+    + coordinates (optional, POINT (0 0), `POINT (0.1 0.1)`) A postgit long lat of the drop coordinates
+
++ Request (application/json)
+
+        {
+            "drop": {
+                "shortcode": "kilburn",
+                "name": "Kilburn & Queen's Park",
+                "properties": null,
+                "coordinates": null,
+            }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "shortcode": "kilburn",
+            "name": "Kilburn & Queen's Park",
+            "status": "new_drop",
+            "properties": null,
+            "coordinates": null,
+            "address": {
+                "id": 43,
+                "firstname": "Caren",
+                "lastname": "Owen",
+                "full_name": "Caren Owen",
+                "address1": "The Albert, Albert Road",
+                "address2": "",
+                "city": "London",
+                "zipcode": "NW6 5DT",
+                "phone": "07799692434",
+                "company": null,
+                "alternative_phone": null,
+                "country_id": 44,
+                "state_id": 55,
+                "state_name": null,
+                "country": {
+                    "id": 44,
+                    "iso_name": "UNITED KINGDOM",
+                    "iso": "GB",
+                    "iso3": "GBR",
+                    "name": "United Kingdom",
+                    "numcode": 826
+                },
+                "state": {
+                    "id": 55,
+                    "name": "TEST",
+                    "abbr": "T",
+                    "country_id": 44
+                }
+            },
+            "keepers": [
+                {
+                    "id": 1,
+                    "properties": {
+                        "area": "test3",
+                        "venue_name": "test2",
+                        "venue_details": "test",
+                        "venue_agreement": "test",
+                        "personal_details": "test",
+                        "food_hygiene_details": "test"
+                    },
+                    "drop_id": 1,
+                    "coordinates": "POINT (0.0 0.0)",
+                    "status": "active"
+                }
+            ],
+            "memberships": [
+                {
+                    "drop_id": 1,
+                    "user_id": 22
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 158
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 159
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 8
+                }
+            ]
+        }
+
+
 ## Retrieve a Drop  [/drops/{id}]
 
 ### Retrieve a Drop [GET]
@@ -96,15 +192,177 @@ Drops related resources of the **Drop API**. This is the service that is used re
 
 + Response 200 (application/json)
 
-        {   
-            "drops":
-                {
-                    "id": 10,
-                    "name": "Highbury & Islington",
-                    "properties": null,
-                    "coordinates": null
+        {
+            "id": 1,
+            "shortcode": "kilburn",
+            "name": "Kilburn & Queen's Park",
+            "status": "new_drop",
+            "properties": null,
+            "coordinates": null,
+            "address": {
+                "id": 43,
+                "firstname": "Caren",
+                "lastname": "Owen",
+                "full_name": "Caren Owen",
+                "address1": "The Albert, Albert Road",
+                "address2": "",
+                "city": "London",
+                "zipcode": "NW6 5DT",
+                "phone": "07799692434",
+                "company": null,
+                "alternative_phone": null,
+                "country_id": 44,
+                "state_id": 55,
+                "state_name": null,
+                "country": {
+                    "id": 44,
+                    "iso_name": "UNITED KINGDOM",
+                    "iso": "GB",
+                    "iso3": "GBR",
+                    "name": "United Kingdom",
+                    "numcode": 826
+                },
+                "state": {
+                    "id": 55,
+                    "name": "TEST",
+                    "abbr": "T",
+                    "country_id": 44
                 }
+            },
+            "keepers": [
+                {
+                    "id": 1,
+                    "properties": {
+                        "area": "test3",
+                        "venue_name": "test2",
+                        "venue_details": "test",
+                        "venue_agreement": "test",
+                        "personal_details": "test",
+                        "food_hygiene_details": "test"
+                    },
+                    "drop_id": 1,
+                    "coordinates": "POINT (0.0 0.0)",
+                    "status": "active"
+                }
+            ],
+            "memberships": [
+                {
+                    "drop_id": 1,
+                    "user_id": 22
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 158
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 159
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 8
+                }
+            ]
+        }
+
+### Update a Drop  [PUT]
+
+    + drop (required, object, `drop`) ... The main drop object
+    + shortcode (required, string, `kilburn`) ... The shortcode of the drop try to keep this 5-10 alphanumbric with no spaces
+    + name (required, object, `drop`) ... The name of the drop   
+    + properties (optional, hashtable, `{"website":"www.communitycenter.com"}`) ... Any properties you want on the drop 
+    + coordinates (optional, POINT (0 0), `POINT (0.1 0.1)`) A postgit long lat of the drop coordinates
+    + event (optional, event, `keeper_ready`) ... Can be one of the following : keeper_ready [keeper or admin], members_reached [keeper, admin or system], close [admin], approved [admin]
+
++ Request (application/json)
+
+        {
+            "drop": {
+                "shortcode": "kilburn",
+                "name": "Kilburn & Queen's Park",
+                "properties": null,
+                "coordinates": null,
             }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "shortcode": "kilburn",
+            "name": "Kilburn & Queen's Park",
+            "status": "new_drop",
+            "properties": null,
+            "coordinates": null,
+            "address": {
+                "id": 43,
+                "firstname": "Caren",
+                "lastname": "Owen",
+                "full_name": "Caren Owen",
+                "address1": "The Albert, Albert Road",
+                "address2": "",
+                "city": "London",
+                "zipcode": "NW6 5DT",
+                "phone": "07799692434",
+                "company": null,
+                "alternative_phone": null,
+                "country_id": 44,
+                "state_id": 55,
+                "state_name": null,
+                "country": {
+                    "id": 44,
+                    "iso_name": "UNITED KINGDOM",
+                    "iso": "GB",
+                    "iso3": "GBR",
+                    "name": "United Kingdom",
+                    "numcode": 826
+                },
+                "state": {
+                    "id": 55,
+                    "name": "TEST",
+                    "abbr": "T",
+                    "country_id": 44
+                }
+            },
+            "keepers": [
+                {
+                    "id": 1,
+                    "properties": {
+                        "area": "test3",
+                        "venue_name": "test2",
+                        "venue_details": "test",
+                        "venue_agreement": "test",
+                        "personal_details": "test",
+                        "food_hygiene_details": "test"
+                    },
+                    "drop_id": 1,
+                    "coordinates": "POINT (0.0 0.0)",
+                    "status": "active"
+                }
+            ],
+            "memberships": [
+                {
+                    "drop_id": 1,
+                    "user_id": 22
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 158
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 159
+                },
+                {
+                    "drop_id": 1,
+                    "user_id": 8
+                }
+            ]
+        }
+
+
+
+
 
 
 # Group Drop Events
