@@ -1015,7 +1015,7 @@ A single User object with all its details
 ### Request Password Reset [POST]
 
 + Parameters
-    + user (required, string, `user`) ... the user object to login with. Has example value.
+    + user (required, string, `user`) ... The user object for the password reset. Must contain email.
 
 
 + Request (application/json)
@@ -1036,7 +1036,7 @@ A single User object with all its details
 ### Reset Password [POST]
 
 + Parameters
-    + user (required, string, `user`) ... the user object to login with. Has example value.
+    + user (required, string, `user`) ... The user object to password reset. Must contain email.
     + token (required, string `bge2uWOaXFbbdSRpavTCa967MxotzQji5-KHYnCeYm6qb75iB9KLTQ`) ... The password reset authentication token
 
 + Request (application/json)
