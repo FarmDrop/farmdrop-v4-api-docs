@@ -1009,6 +1009,92 @@ A single User object with all its details
                     }
                 }
             }
+     
+
+## User Password Reset Request [/user/reset]
+### Request Password Reset [POST]
+
++ Parameters
+    + user (required, string, `user`) ... the user object to login with. Has example value.
+
+
++ Request (application/json)
+
+    + Body
+    
+            {
+                "user": {
+                    "email": "myles@farmdrop.co.uk"
+                }
+            }
+
++ Response 200 (application/json)
+
+        {}
+        
+## User Password Reset [/user/password?token=hiEm7hZubewHZoNISlAz8Yu_UZBhbDDYTG_gcKwgvOoifEvzb3NU-w&email=kent@farmdrop.co.uk]
+### Reset Password [POST]
+
++ Parameters
+    + user (required, string, `user`) ... the user object to login with. Has example value.
+    + token (required, string `bge2uWOaXFbbdSRpavTCa967MxotzQji5-KHYnCeYm6qb75iB9KLTQ`) ... The password reset authentication token
+
++ Request (application/json)
+
+    + Body
+    
+            {
+                "user": {
+                    "email": "myles@farmdrop.co.uk"
+                },
+                "token": "bge2uWOaXFbbdSRpavTCa967MxotzQji5-KHYnCeYm6qb75iB9KLTQ"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "users": {
+                "id": 98,
+                "email": "ddd@wdsefgwadesf.fr",
+                "firstname": null,
+                "lastname": null,
+                "role": "producer",
+                "authentication_token": "0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA",
+                "producer_id": null,
+                "image_url": null,
+                "google_id": null,
+                "facebook_id": null,
+                "properties": null,
+                "memberships": [],
+                "bill_address": {
+                    "id": 488,
+                    "firstname": "wadsefr",
+                    "lastname": "swadsef",
+                    "full_name": "wadsefr swadsef",
+                    "address1": "NA",
+                    "address2": null,
+                    "city": "NA",
+                    "zipcode": "s23ww",
+                    "phone": "0",
+                    "company": null,
+                    "alternative_phone": null,
+                    "country_id": 44,
+                    "state_id": null,
+                    "state_name": null,
+                    "country": {
+                        "id": 44,
+                        "iso_name": "UNITED KINGDOM",
+                        "iso": "GB",
+                        "iso3": "GBR",
+                        "name": "United Kingdom",
+                        "numcode": 826
+                    },
+                    "": null
+                }
+            }
+        }
+
+     
        
 ## User Settings [/users/{user_id}/Settings/{id}]
 ### Retrieve User Settings [GET]
