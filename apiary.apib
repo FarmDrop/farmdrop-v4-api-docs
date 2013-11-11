@@ -183,7 +183,6 @@ Drops related resources of the **Drop API**. This is the service that is used re
             ]
         }
 
-
 ## Retrieve a Drop  [/drops/{id}]
 
 ### Retrieve a Drop [GET]
@@ -361,11 +360,6 @@ Drops related resources of the **Drop API**. This is the service that is used re
             ]
         }
 
-
-
-
-
-
 # Group Drop Events
 Drop Event related resources of the **Drop Event API**. This is the service that is used retrieve, create and update Drop Events. Some of these actions are ADMIN ONLY.
 
@@ -466,10 +460,45 @@ Drop Event related resources of the **Drop Event API**. This is the service that
             ]
         }
 
+# Group Drop Activity
+Acivities related resources of the **Activity API**. This is the service is used for storing posts, comments, likes, flags etch. Some of these actions are **ADMIN or KEEPER ONLY**.
+
+## Activity Collection [/api/drops/:id/activities?page=1&per_page=10]
+### List all Activities [GET]
+
++ Parameters
+    + drop id (required, number, `1`) ... Id of the drop to retrieve activities for 
+    + page (optional, number, `1`) ... A number to indicate which page to retrieve
+    + per_page (optional, number, `15`) ... A number to indicate how many items to retrieve per request or page. 
+
++ Response 200 (application/json)
 
 
-# Group Producers
-Producers related resources of the **Producer API**. This is the service that is used to retrieve, create and update Producers. Some of these actions are **ADMIN or PRODUCER ONLY**.
+
+
+
+## Activity  [/api/drops/:id/activities]
+### Create Activities [POST]
+
+    + activity (required, object, `activity`) ... The main activity object
+    + drop_id (required, id, `1`) ... The id of the drop associated with the activity
+
+
++ Request (application/json)
+
+        {
+            "activity": {
+                "user_id": 9,
+                "drop_id": 1,
+                "type": 1,
+                "properties": {
+                    "message": "kent is great 3"
+                }
+            }
+        }
+
+
++ Response 201 (application/json)
 
 ## Producers Collection [/producers/?page=1&per_page=10]
 ### List all Producers [GET]
@@ -731,10 +760,8 @@ Producers related resources of the **Producer API**. This is the service that is
             ]
         }
 
-
 # Group Keepers
 Keepers related resources of the **Keeper API**. This is the service that is used to retrieve, create and update Keepers. Some of these actions are **ADMIN or KEEPER ROLES ONLY**.
-
 
 # Group Users
 Users related resources of the **User API**. This is the service that is used to signup, login, reset password, retrieve, create and update Users. Some of these actions are ADMIN ONLY.
@@ -795,10 +822,6 @@ Users related resources of the **User API**. This is the service that is used to
             ]
         }
         
-        
-
-      
-
 ### Create a User [POST]
 
     + user (required, number, `1`) ... The main user object
@@ -1011,7 +1034,6 @@ A single User object with all its details
                 }
             }
      
-
 ## User Password Reset Request [/user/reset]
 ### Request Password Reset [POST]
 
@@ -1095,8 +1117,6 @@ A single User object with all its details
             }
         }
 
-     
-       
 ## User Settings [/users/{user_id}/Settings/{id}]
 ### Retrieve User Settings [GET]
 
