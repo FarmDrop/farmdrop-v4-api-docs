@@ -476,7 +476,7 @@ Acivities related resources of the **Activity API**. This is the service is used
         {}
 
 
-## Activity  [/api/drops/:id/activities]
+## Create Activity  [/api/drops/:id/activities]
 ### Create Activities [POST]
 
     + activity (required, object, `activity`) ... The main activity object
@@ -500,6 +500,16 @@ Acivities related resources of the **Activity API**. This is the service is used
 + Response 201 (application/json)
 
         {}
+ 
+## Delete Activity [/api/drops/:drop_id/activities/:id]     
+### Remove an Activity [DELETE]
+
++ Parameters
+    + drop_id (required, id, `1`) ... The id of the drop associated with the activity
+    + id (required, id, `1`) ... The id of the activity to be deleted
+    
++ Response 204
+   
         
 # Group Producers
 
