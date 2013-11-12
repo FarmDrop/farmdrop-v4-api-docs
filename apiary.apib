@@ -183,7 +183,7 @@ Drops related resources of the **Drop API**. This is the service that is used re
             ]
         }
 
-## Retrieve a Drop  [/drops/{id}]
+## Drop  [/drops/{id}]
 
 ### Retrieve a Drop [GET]
 
@@ -278,14 +278,16 @@ Drops related resources of the **Drop API**. This is the service that is used re
 
 + Request (application/json)
 
-        {
-            "drop": {
-                "shortcode": "kilburn",
-                "name": "Kilburn & Queen's Park",
-                "properties": null,
-                "coordinates": null,
+    + Body
+    
+            {
+                "drop": {
+                    "shortcode": "kilburn",
+                    "name": "Kilburn & Queen's Park",
+                    "properties": null,
+                    "coordinates": "POINT (0.1 0.1)",
+                }
             }
-        }
 
 + Response 200 (application/json)
 
@@ -374,93 +376,38 @@ Drop Event related resources of the **Drop Event API**. This is the service that
 
 + Response 200 (application/json)
 
-        {
-            "count": 10,
-            "current_page": 1,
-            "pages": 1,
-            "drop_events": [
-                {
-                    "id": 3,
-                    "name": "Tufnell 23 May 2013",
-                    "cutoff_date": "2013-05-20T23:59:59.000Z",
-                    "drop_date": "2013-05-23T18:00:00.000Z",
-                    "drop_id": 2,
-                    "status": "active"
-                },
-                {
-                    "id": 2,
-                    "name": "Tufnell 30 May 2013",
-                    "cutoff_date": "2013-05-28T14:00:00.000Z",
-                    "drop_date": "2013-05-30T18:00:00.000Z",
-                    "drop_id": 2,
-                    "status": "active"
-                },
-                {
-                    "id": 5,
-                    "name": "Tufnell 06 June 2013",
-                    "cutoff_date": "2013-06-03T23:59:59.000Z",
-                    "drop_date": "2013-06-06T18:00:00.000Z",
-                    "drop_id": 2,
-                    "status": "active"
-                },
-                {
-                    "id": 7,
-                    "name": "Kilburn 13 June 2013",
-                    "cutoff_date": "2013-06-10T23:59:59.000Z",
-                    "drop_date": "2013-06-13T17:30:00.000Z",
-                    "drop_id": 1,
-                    "status": "active"
-                },
-                {
-                    "id": 8,
-                    "name": "Tufnell 13 June 2013",
-                    "cutoff_date": "2013-06-10T23:59:59.000Z",
-                    "drop_date": "2013-06-13T18:00:00.000Z",
-                    "drop_id": 2,
-                    "status": "active"
-                },
-                {
-                    "id": 1,
-                    "name": "Kilburn 23 May 2013",
-                    "cutoff_date": "2013-05-20T23:59:59.000Z",
-                    "drop_date": "2013-05-23T17:30:00.000Z",
-                    "drop_id": 1,
-                    "status": "active"
-                },
-                {
-                    "id": 4,
-                    "name": "Kilburn 30 May 2013",
-                    "cutoff_date": "2013-05-28T14:00:00.000Z",
-                    "drop_date": "2013-05-30T17:30:00.000Z",
-                    "drop_id": 1,
-                    "status": "active"
-                },
-                {
-                    "id": 6,
-                    "name": "Kilburn 6 June 2013",
-                    "cutoff_date": "2013-06-03T23:59:59.000Z",
-                    "drop_date": "2013-06-06T17:30:00.000Z",
-                    "drop_id": 1,
-                    "status": "active"
-                },
-                {
-                    "id": 10,
-                    "name": "Tufnell 20 June 2013",
-                    "cutoff_date": "2013-06-17T23:59:59.000Z",
-                    "drop_date": "2013-06-20T18:00:00.000Z",
-                    "drop_id": 2,
-                    "status": "active"
-                },
-                {
-                    "id": 9,
-                    "name": "Kilburn 20 June 2013",
-                    "cutoff_date": "2013-06-17T23:59:59.000Z",
-                    "drop_date": "2013-06-20T17:30:00.000Z",
-                    "drop_id": 1,
-                    "status": "active"
-                }
-            ]
-        }
+        + Body
+            {
+                "count": 10,
+                "current_page": 1,
+                "pages": 1,
+                "drop_events": [
+                    {
+                        "id": 3,
+                        "name": "Tufnell 23 May 2013",
+                        "cutoff_date": "2013-05-20T23:59:59.000Z",
+                        "drop_date": "2013-05-23T18:00:00.000Z",
+                        "drop_id": 2,
+                        "status": "active"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tufnell 30 May 2013",
+                        "cutoff_date": "2013-05-28T14:00:00.000Z",
+                        "drop_date": "2013-05-30T18:00:00.000Z",
+                        "drop_id": 2,
+                        "status": "active"
+                    },
+                    {
+                        "id": 9,
+                        "name": "Kilburn 20 June 2013",
+                        "cutoff_date": "2013-06-17T23:59:59.000Z",
+                        "drop_date": "2013-06-20T17:30:00.000Z",
+                        "drop_id": 1,
+                        "status": "active"
+                    }
+                ]
+            }
 
 # Group Drop Activity
 Acivities related resources of the **Activity API**. This is the service is used for storing posts, comments, likes, flags etch. Some of these actions are **ADMIN or KEEPER ONLY**.
@@ -514,7 +461,7 @@ Acivities related resources of the **Activity API**. This is the service is used
     
 + Response 204
    
-        
+  
 # Group Producers
 
 ## Producers Collection [/producers/?page=1&per_page=10]
@@ -778,15 +725,14 @@ Acivities related resources of the **Activity API**. This is the service is used
         }
 
 
-## Producer [/producers/:id]
-
+## Producer [/producers/:id/taxon_ids/:taxon_ids/event/:event]
 ### Update a Producer [PUT]
 
 + Parameters
     + id (required, number, `1`) ... The id of the producer to update
     + producer (required, object, `producer`) ... The main producer object
     + taxon_ids (optional, array, `[1,2,3]`) ... An array of taxon ids to be added
-    + event (optional, event, `submit_application`) ... As per the workflow for producer. example: submit_application, under_review, request_info, resubmit_application, approval, reject
+    + event (optional, event, `submit_application`) ... As per the workflow for producer. example: "submit_application", "under_review", "request_info", "resubmit_application", "approval", "reject"
 
 + Request (application/json)
 
@@ -1004,8 +950,6 @@ A single User object with all its details
             X-AUTH-TOKEN: 0025o0BOfxtuD1LKfe7hrwwBOaO-ESxsbwULHmQGZfp085Cddx3uQA
 
 + Response 200 (application/json)
-
-
 
     + Body
     
