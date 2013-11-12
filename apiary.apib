@@ -773,6 +773,75 @@ Acivities related resources of the **Activity API**. This is the service is used
             ]
         }
 
+
+## Producer [/producers]
+
+### Update a Producer [PUT]
+
+    + producer (required, object, `producer`) ... The main producer object
+    + taxon_ids (optional, array, `[1,2,3]`) ... An array of taxon ids to be added
+    + event (optional, event, `submit_application`) ... As per the workflow for producer. example: submit_application, under_review, request_info, resubmit_application, approval, reject
+
++ Request (application/json)
+
+
+        {
+            "producer": {
+                "id": 134,
+                "user_id": 394,
+                "status": "signed_up",
+                "properties": {
+                    "profile_app_draft": {
+                        "address1": "2 Crabtree Lane",
+                        "city": "London",
+                        "postcode": "SW12 8AG"
+                    },
+                    "profile_app_status": "incomplete"
+                },
+                "coordinates": null
+            },
+            "taxon_ids": [
+                1,
+                2
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id": 3,
+            "user_id": 394,
+            "status": "signed_up",
+            "properties": {
+                "profile_app_draft": {
+                    "address1": "2 Crabtree Lane",
+                    "city": "London",
+                    "postcode": "SW12 8AG"
+                },
+                "profile_app_status": "incomplete"
+            },
+            "coordinates": null,
+            "producer_taxons": [
+                {
+                    "id": 45,
+                    "taxon_id": 1,
+                    "producer_id": 3,
+                    "is_master_taxon": null,
+                    "created_at": "2013-11-12T10:15:10.502Z",
+                    "updated_at": "2013-11-12T10:15:10.502Z"
+                },
+                {
+                    "id": 46,
+                    "taxon_id": 2,
+                    "producer_id": 3,
+                    "is_master_taxon": null,
+                    "created_at": "2013-11-12T10:15:11.615Z",
+                    "updated_at": "2013-11-12T10:15:11.615Z"
+                }
+            ]
+        }
+
+
 # Group Keepers
 Keepers related resources of the **Keeper API**. This is the service that is used to retrieve, create and update Keepers. Some of these actions are **ADMIN or KEEPER ROLES ONLY**.
 
@@ -837,7 +906,7 @@ Users related resources of the **User API**. This is the service that is used to
         
 ### Create a User [POST]
 
-    + user (required, number, `1`) ... The main user object
+    + user (required, object, `user`) ... The main User object
     + firstname (required, string, `Myles`) ... firstname of the user. This will also get saved onto the address.
     + lastname (required, string, `Cowper-coles`) ... lastname of the user. This will also get saved onto the address
     + login_method (required, string, `normal`) : "normal", "facebook", or "google"
