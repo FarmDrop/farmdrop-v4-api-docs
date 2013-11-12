@@ -267,11 +267,13 @@ Drops related resources of the **Drop API**. This is the service that is used re
 
 ### Update a Drop  [PUT]
 
++ Parameters
+    + id (required, number, `1`) ... A number to indicate which drop to retrieve.
     + drop (required, object, `drop`) ... The main drop object
     + shortcode (required, string, `kilburn`) ... The shortcode of the drop try to keep this 5-10 alphanumbric with no spaces
     + name (required, object, `drop`) ... The name of the drop   
     + properties (optional, hashtable, `{"website":"www.communitycenter.com"}`) ... Any properties you want on the drop 
-    + coordinates (optional, POINT (0 0), `POINT (0.1 0.1)`) A postgit long lat of the drop coordinates
+    + coordinates (optional, string, `POINT (0.1 0.1)`) ... A postgist long lat of the drop coordinates
     + event (optional, event, `keeper_ready`) ... Can be one of the following : keeper_ready [keeper or admin], members_reached [keeper, admin or system], close [admin], approved [admin]
 
 + Request (application/json)
@@ -476,9 +478,10 @@ Acivities related resources of the **Activity API**. This is the service is used
         {}
 
 
-## Create Activity  [/drops/:id/activities]
+## Create Activity  [/drops/:drop_id/activities]
 ### Create Activities [POST]
 
++ Parameters
     + activity (required, object, `activity`) ... The main activity object
     + drop_id (required, id, `1`) ... The id of the drop associated with the activity
 
@@ -774,10 +777,13 @@ Acivities related resources of the **Activity API**. This is the service is used
         }
 
 
-## Producer [/producers]
+## Producer [/producers/:id]
 
 ### Update a Producer [PUT]
 
++ Parameters
+
+    + id (required, number, `1`) ... The id of the producer to update
     + producer (required, object, `producer`) ... The main producer object
     + taxon_ids (optional, array, `[1,2,3]`) ... An array of taxon ids to be added
     + event (optional, event, `submit_application`) ... As per the workflow for producer. example: submit_application, under_review, request_info, resubmit_application, approval, reject
@@ -903,13 +909,16 @@ Users related resources of the **User API**. This is the service that is used to
                 }
             ]
         }
+     
+## Create User [/users]     
         
 ### Create a User [POST]
 
++ Parameters
     + user (required, object, `user`) ... The main User object
     + firstname (required, string, `Myles`) ... firstname of the user. This will also get saved onto the address.
     + lastname (required, string, `Cowper-coles`) ... lastname of the user. This will also get saved onto the address
-    + login_method (required, string, `normal`) : "normal", "facebook", or "google"
+    + login_method (required, string, `normal`) ... "normal", "facebook", or "google"
     + role (required, string, `member`) ... A number to indicate how many Users to retrieve per request or page.  
     + bill_address (optional, number, `25`) ... A number to indicate how many Users to retrieve per request or page. 
     + email (required, string, `myles@farmdrop.co.uk`)
