@@ -4,6 +4,23 @@ HOST: http://api-staging.farmdrop.co.uk/api
 # FarmDrop API v1
 FarmDrop API is an *interface* into the FarmDrop service. More blur about this to follow. 
 
+
+# Group Config
+Config related resources of the **Config API**. A service to retrieve app configurations. Currently returning policy and signature for upload.
+
+## Config  Collection [/config]
+
+### List all Configs [GET]
+
++ Response 200 (application/json)
+
+        {
+            "policy": "eyJleHBpcmF0aW9uIjoiMjAxMy0xMS0xM1QxOToxNjoxNC4wMDBaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoiZmFybWRyb3AtdjQtYXBpIn0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwidXBsb2Fkcy8iXSx7InN1Y2Nlc3NfYWN0aW9uX3N0YXR1cyI6IjIwMSJ9XX0=",
+            "signature": "qGDNfvo84ql9JirKcwqvkTQFq9E="
+        }
+
+
+
 # Group Drops
 Drops related resources of the **Drop API**. This is the service that is used retrieve, create and update Drops. Some of these actions are ADMIN ONLY.
 
