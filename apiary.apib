@@ -433,17 +433,17 @@ Acivities related resources of the **Activity API**. This is the service is used
     + activities (required, object, `activity`) ... The main activity object
 
 
-
 + Request (application/json)
 
         {
             "activity": {
-                "drop_id":2,
-                "user_id":2,
-                "parent_id":4,
+               "drop_id": 1,
+                "activity_type": 0,
+                "parent_id": null,
                 "properties": {
-                    "message": "kent is great 3"
-                }
+                    "message": "kent is great"
+                },
+                "user_id": 8
             }
         }
 
@@ -461,6 +461,25 @@ Acivities related resources of the **Activity API**. This is the service is used
     
 + Response 204
    
+## Create Activity Like  [/drops/:drop_id/activities/:activity_id/like]
+### Create Like [POST]
+
++ Parameters
+    + drop_id (required, id, `1`) ... The id of the drop associated with the activity
+    + activity_id (required, object, `like`) ... The main like object includes user_id
+
+
++ Request (application/json)
+
+        {
+            "like": {
+                "user_id": 8
+            }
+        }
+
++ Response 201 (application/json)
+
+        {}
   
 # Group Producers
 
