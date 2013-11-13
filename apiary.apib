@@ -412,17 +412,93 @@ Drop Event related resources of the **Drop Event API**. This is the service that
 # Group Drop Activity
 Acivities related resources of the **Activity API**. This is the service is used for storing posts, comments, likes, flags etch. Some of these actions are **ADMIN or KEEPER ONLY**.
 
-## Activity Collection [/drops/:id/activities?page=1&per_page=10]
+## Activity Collection [/drops/:drop_id/activities?page=1&per_page=10]
 ### List all Activities [GET]
 
 + Parameters
-    + id (required, number, `1`) ... The ID of the drop to retrieve activities for 
+    + drop_id (required, number, `1`) ... The ID of the drop to retrieve activities for 
     + page (optional, number, `1`) ... A number to indicate which page to retrieve
     + per_page (optional, number, `15`) ... A number to indicate how many items to retrieve per request or page. 
 
 + Response 200 (application/json)
 
-        {}
+        {
+            "count": 1,
+            "current_page": 1,
+            "pages": 1,
+            "activities": [
+                {
+                    "id": 1,
+                    "drop_id": 1,
+                    "type_name": "comments",
+                    "parent_id": null,
+                    "properties": {
+                        "message": "kent is great"
+                    },
+                    "user": {
+                        "role": "admin",
+                        "firstname": "Kent",
+                        "id": 8
+                    },
+                    "activities": [
+                        {
+                            "id": 2,
+                            "drop_id": 0,
+                            "type_name": "comments",
+                            "parent_id": 1,
+                            "properties": {
+                                "message": "liem is brilliant"
+                            },
+                            "user": {
+                                "role": "admin",
+                                "firstname": "Kent",
+                                "id": 8
+                            },
+                            "likes": []
+                        },
+                        {
+                            "id": 3,
+                            "drop_id": 0,
+                            "type_name": "comments",
+                            "parent_id": 1,
+                            "properties": {
+                                "message": "myles not so much"
+                            },
+                            "user": {
+                                "role": "admin",
+                                "firstname": "Kent",
+                                "id": 8
+                            },
+                            "likes": [
+                                {
+                                    "id": 3,
+                                    "user": {
+                                        "firstname": "Kent",
+                                        "id": 8
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "likes": [
+                        {
+                            "id": 1,
+                            "user": {
+                                "firstname": "Kent",
+                                "id": 8
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "user": {
+                                "firstname": "Kent",
+                                "id": 8
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
 
 
 ## Create Activity  [/drops/:drop_id/activities]
