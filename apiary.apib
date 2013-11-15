@@ -286,12 +286,12 @@ Drops related resources of the **Drop API**. This is the service that is used re
 
 + Parameters
     + id (required, number, `1`) ... A number to indicate which drop to retrieve.
-        + drop (required, object, `drop`) ... The main drop object
-            + shortcode (required, string, `kilburn`) ... The shortcode of the drop try to keep this 5-10 alphanumbric with no spaces
-            + name (required, object, `drop`) ... The name of the drop   
-            + properties (optional, hashtable, `{"website":"www.communitycenter.com"}`) ... Any properties you want on the drop 
-            + coordinates (optional, string, `POINT (0.1 0.1)`) ... A postgist long lat of the drop
-        + event (optional, event, `keeper_ready`) ... Can be one of the following : keeper_ready [keeper or admin], members_reached [keeper, admin or system], close [admin], approved [admin]
+    + drop (required, object, `drop`) ... The main drop object
+    + shortcode (required, string, `kilburn`) ... The shortcode of the drop try to keep this 5-10 alphanumbric with no spaces
+    + name (required, object, `drop`) ... The name of the drop   
+    + properties (optional, hashtable, `{"website":"www.communitycenter.com"}`) ... Any properties you want on the drop 
+    + coordinates (optional, string, `POINT (0.1 0.1)`) ... A postgist long lat of the drop
+    + event (optional, event, `keeper_ready`) ... Can be one of the following : keeper_ready [keeper or admin], members_reached [keeper, admin or system], close [admin], approved [admin]
 
 + Request (application/json)
 
